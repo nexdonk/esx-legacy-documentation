@@ -1,0 +1,12 @@
+{
+  "title": "es_extended",
+  "pages": [
+    "client",
+    "config",
+    "events",
+    "server",
+    "shared",
+    "playerdata",
+    "..."
+  ]
+}

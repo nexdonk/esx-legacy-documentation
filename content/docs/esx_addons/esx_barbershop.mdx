@@ -1,0 +1,48 @@
+---
+title: "esx_barbershop"
+sidebarTitle: "Barbershop"
+---
+
+[Github Link](https://github.com/esx-framework/ESX-Legacy-Addons/tree/main/%5Besx_addons%5D/esx_barbershop)
+
+ESX Barber Shop is a simple script that uses `esx_skin` to allow players to change their hair and beard style.
+<br />
+<img src="https://r2.fivemanage.com/SVPyt7tsQi4njkYd2eKX6/Screenshot2025-01-04080213.png" alt="Preview" />
+
+## Configuration
+
+- `Config.Price`
+    - type: `integer`
+    - default: `100`
+    - description: The price to change the hair or beard style.
+- `Config.DrawDistance`
+    - type: `float`
+    - default: `10.0`
+    - description: The distance to see the marker.
+- `Config.MarkerSize`
+    - type: `vector3`
+    - default: `vector3(1.5, 1.5, 1.0)`
+    - description: The size of the marker.
+- `Config.MarkerColor`
+    - type: `table`
+    - default: ` {r = 102, g = 102, b = 204}`
+    - description: The color of the marker.
+- `Config.MarkerType`
+    - type: `integer`
+    - default: `1`
+    - description: The type of the marker.
+- `Config.Shops`
+    - type: `table`
+    - description: The list of barber shops.
+    - default:
+        ```lua
+       Config.Shops = {
+            vector3(-814.3, -183.8, 36.6),
+            vector3(136.8, -1708.4, 28.3),
+            vector3(-1282.6, -1116.8, 6.0),
+            vector3(1931.5, 3729.7, 31.8),
+            vector3(1212.8, -472.9, 65.2),
+            vector3(-32.9, -152.3, 56.1),
+            vector3(-278.1, 6228.5, 30.7)
+        }
+        ```

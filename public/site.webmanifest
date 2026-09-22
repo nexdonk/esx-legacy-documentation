@@ -2,7 +2,7 @@
   "name": "ESX Framework Documentation",
   "short_name": "ESX Docs",
   "description": "Complete documentation for ESX Framework - The most popular FiveM roleplay framework",
-  "start_url": "/en",
+  "start_url": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -22,7 +22,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ff6b35",
+  "theme_color": "#f58220",
   "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait"

@@ -1,0 +1,156 @@
+---
+title: "esx_ambulancejob"
+sidebarTitle: "Ambulance Job"
+---
+
+[Github Link](https://github.com/esx-framework/ESX-Legacy-Addons/tree/main/%5Besx_addons%5D/esx_ambulancejob)
+
+ESX Ambulance Job is an EMS plugin for ESX with features:
+    - Adds death screen, with early respawn timer and bleed out timer
+    - Vehicle garages, revive menu and more for on duty EMS
+
+<Callout type="warning">
+    Death handling, will be removed in the future, and will be replaced with a new system in `es_extended`.
+</Callout>
+
+## Configuration
+
+- `Config.DrawDistance`
+    - type:`float`
+    - default:`10.0`
+    - description: The draw distance for the markers.
+- `Config.Marker`
+    - type:`table`
+    - default: `{type = 1, x = 1.5, y = 1.5, z = 0.5, r = 102, g = 0, b = 102, a = 100, rotate = false}`
+    - description: The marker settings.
+- `Config.ReviveReward`
+    - type:`int`
+    - default:`700`
+    - description: The reward for reviving a player.
+- `Config.LoadIpl`
+    - type:`boolean`
+    - default:`true`
+    - description: Load the hospital interior.
+- `Config.DistressBlip`
+    - type:`table`
+    - default: `{Sprite = 310, Color = 48, Scale = 2.0}`
+    - description: distress blip settings.
+- `Config.zoom`
+    - type:`table`
+    - default: `{min = 1, max = 6, step = 0.5}`
+    - description: zoom level for the death camera.
+- `Config.EarlyRespawnTimer`
+    - type:`int`
+    - default:`60000 * 1`
+    - description: The time in milliseconds before the player can respawn.
+- `Config.BleedoutTimer`
+    - type:`int`
+    - default:`60000 * 10`
+    - description: The time in milliseconds before the player bleeds out to death.
+- `Config.EnablePlayerManagement`
+    - type:`boolean`
+    - default:`true`
+    - description: Enable player/society management.
+- `Config.RemoveWeaponsAfterRPDeath`
+    - type:`boolean`
+    - default:`true`
+    - description: Remove weapons after player death.
+- `Config.RemoveCashAfterRPDeath`
+    - type:`boolean`
+    - default:`true`
+    - description: Remove cash after player death.
+- `Config.RemoveItemsAfterRPDeath`
+    - type:`boolean`
+    - default:`true`
+    - description: Remove items after player death.
+- `Config.EarlyRespawnFine`
+    - type:`boolean`
+    - default:`false`
+    - description: Enable fine for early respawn.
+- `Config.EarlyRespawnFineAmount`
+    - type:`int`
+    - default:`500`
+    - description: The fine amount for early respawn if enabled.
+- `Config.RespawnPoints`
+    - type:`table`
+    - default:`{{coords = vector3(341.0, -1397.3, 32.5), heading = 48.5}}`
+    - description: The respawn points for the player.
+- `Config.PharmacyItems`
+    - type:`table`
+    - description: The items available at the pharmacy.
+    - layout:
+```lua
+Config.PharmacyItems = {
+    {title = 'Item Label', item = 'name'},
+}
+```
+- `Config.Hospitals`
+    - type:`table`
+    - description: The hospitals available.
+    - layout:
+```lua
+Config.Hospitals = {
+   HospitalName = {
+        Blip = {
+            coords = vector3(0.0, 0.0, 0.0),
+            sprite = 153,
+            color = 1,
+            scale = 1.0,
+        },
+        AmbulanceActions  = {
+            vector3(0.0, 0.0, 0.0),
+        },
+        Pharmacies = {
+            vector3(0.0, 0.0, 0.0),
+        },
+        Vehicles = {
+           {
+                Spawner = vector3(0.0, 0.0, 0.0),
+                InsideShop  = vector3(0.0, 0.0, 0.0),
+                Marker = {type = 36, x = 1.0, y = 1.0, z = 1.0, r = 100, g = 50, b = 200, a = 100, rotate = true},
+                SpawnPoints = {
+					{coords = vector3(297.2, -1429.5, 29.8), heading = 227.6, radius = 4.0},
+				}
+           }
+        },
+        Helicopters = {
+            {
+                Spawner = vector3(0.0, 0.0, 0.0),
+                InsideShop  = vector3(0.0, 0.0, 0.0),
+                Marker = {type = 36, x = 1.0, y = 1.0, z = 1.0, r = 100, g = 50, b = 200, a = 100, rotate = true},
+                SpawnPoints = {
+                    {coords = vector3(297.2, -1429.5, 29.8), heading = 227.6, radius = 4.0},
+                }
+            }
+        },
+        FastTravels = {
+            {
+                From = vector3(0.0, 0.0, 0.0),
+                To = vector3(0.0, 0.0, 0.0),
+                Marker = {type = 1, x = 2.0, y = 2.0, z = 0.5, r = 102, g = 0, b = 102, a = 100, rotate = false}
+            }
+        },
+        FastTravelsPrompt = {
+         {
+				From = vector3(237.4, -1373.8, 26.0),
+				To = {coords = vector3(251.9, -1363.3, 38.5), heading = 0.0},
+				Marker = {type = 1, x = 1.5, y = 1.5, z = 0.5, r = 102, g = 0, b = 102, a = 100, rotate = false},
+				Prompt = "Fast Travel"
+			},
+        }
+   }
+}
+```
+- `Config.AuthorizedVehicles`
+    - type:`table`
+    - description: The vehicles available for EMS.
+    - layout:
+```lua
+Config.AuthorizedVehicles = {
+    vehicleType = {
+        grade_name = {
+            {model = 'model', price = 5000},
+        },
+    },
+}
+```

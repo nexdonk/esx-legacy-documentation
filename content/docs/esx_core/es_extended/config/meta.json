@@ -1,0 +1,10 @@
+{
+  "icon": "Cog",
+  "title": "Config",
+  "pages": [
+    "main",
+    "logs",
+    "weapon",
+    "..."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "title": "ESX Legacy",
+  "pages": [
+    "---Getting started---",
+    "index",
+    "tutorial",
+    "troubleshoot",
+    "---Reference---",
+    "esx_core",
+    "esx_addons",
+    "---Resources---",
+    "tools",
+    "..."
+  ]
+}

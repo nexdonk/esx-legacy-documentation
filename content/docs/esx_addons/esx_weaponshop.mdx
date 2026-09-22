@@ -1,0 +1,67 @@
+---
+title: "esx_weaponshop"
+sidebarTitle: "Weapon Shop"
+---
+
+[Github Link](https://github.com/esx-framework/ESX-Legacy-Addons/tree/main/%5Besx_addons%5D/esx_weaponshop)
+
+Would it be Los-Santos Without some weapons? No! This resource lets Players spend their hard-earned drug money on buying the important things in life
+- revolvers and RPGs! Users can goto their trusty Ammu-Nation to get some Legal fun or get risky and frisky with the illegal black-market dealer 😉
+<br />
+<img src="https://r2.fivemanage.com/SVPyt7tsQi4njkYd2eKX6/Screenshot2025-01-04085222.png" alt="Preview" />
+
+# Configuration
+
+- `Config.DrawDistance`
+    - type: `float`
+    - default: `10.0`
+    - description: The distance in which the marker is visible.
+- `Config.Size`
+    - type: `table`
+    - default: `{ x = 1.5, y = 1.5, z = 0.5 }`
+    - description: The size of the marker.
+- `Config.Color`
+    - type: `table`
+    - default: `{ r = 0, g = 128, b = 255 }`
+    - description: The color of the marker.
+- `Config.Type`
+    - type: `integer`
+    - default: `1`
+    - description: The type of the marker.
+- `Config.MenuPosition`
+    - type: `string`
+    - default: `right`
+    - description: The position of the menu. Can be `right` or `left`.
+- `Config.LicenseEnable`
+    - type: `boolean`
+    - default: `false`
+    - description: Enable or disable required license to buy weapons.
+- `Config.LicensePrice `
+    - type: `integer`
+    - default: `5000`
+    - description: The price of the license.
+- `Config.Zones`
+    - type: `table`
+    - description: The zones where the weapon shop is located.
+    - layout:
+```lua
+Config.Zones = {
+    ShopName = {
+        Legal = true, -- Legal or illegal shop
+        Blip = {
+            Enabled = true,
+			Sprite = 110,
+			Color = 81,
+			Display = 4,
+			Scale = 0.7,
+			ShortRange = true
+        },
+        Items = {
+            { name = 'WEAPON_PISTOL', price = 500 },
+        },
+        Locations = {
+            vector3(-662.1, -935.3, 20.8),
+        }
+    }
+}
+```

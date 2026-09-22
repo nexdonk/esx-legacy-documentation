@@ -1,0 +1,10 @@
+{
+  "icon": "GraduationCap",
+  "title": "Tutorials",
+  "pages": [
+    "install",
+    "developing",
+    "coding_practices",
+    "..."
+  ]
+}

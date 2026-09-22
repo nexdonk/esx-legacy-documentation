@@ -1,0 +1,10 @@
+{
+  "icon": "Server",
+  "title": "Server",
+  "pages": [
+    "functions",
+    "onesync",
+    "xplayer",
+    "..."
+  ]
+}

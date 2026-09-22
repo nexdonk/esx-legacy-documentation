@@ -1,0 +1,26 @@
+---
+title: "esx_billing"
+sidebarTitle: "Billing"
+---
+
+[Github Link](https://github.com/esx-framework/ESX-Legacy-Addons/tree/main/%5Besx_addons%5D/esx_billing)
+
+This resource for ESX adds possibility for different jobs to send bills to players, for example making police units able to give people fines. It comes with a menu for paying bills, to open the menu the default keybind is F7.
+
+There is a server event available in order to register bills in the database/
+
+### Usage
+
+- Show the bill menu: `F7`
+- Using the bill event:
+
+```lua
+local amount                         = 100
+local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+
+if closestPlayer == -1 or closestDistance > 3.0 then
+	ESX.ShowNotification('There\'s no players nearby!')
+else
+	TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(closestPlayer), 'society_taxi', 'Taxi', amount)
+end
+```

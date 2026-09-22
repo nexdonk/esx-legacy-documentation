@@ -1,0 +1,55 @@
+---
+title: "Troubleshooting"
+sidebarTitle: "Common Issues"
+description: "Fixes for the most common problems you may run into while installing or running ESX Legacy."
+icon: LifeBuoy
+---
+
+Each entry below describes the symptom, the usual cause and how to fix it. If your problem is not
+listed, ask on the [ESX Discord](https://discord.esx-framework.org/) with your server console output.
+
+<Accordions type="multiple">
+  <Accordion title="Native XXXXXXXX is not supported" id="native-not-supported">
+    **Symptom:** the server console prints an error similar to:
+
+    ```text
+    [script:es_extended] Native 0x... is not supported
+    ```
+
+    **Cause:** you downloaded the **recommended** build of the FXServer artifacts, which is often
+    too old for the natives ESX uses.
+
+    **Fix:** download the **latest** artifact build instead, replace your existing artifacts and
+    restart the server. See [Step 1 of the installation guide](/docs/tutorial/install#step-1-download-server-artifacts).
+  </Accordion>
+
+  <Accordion title="ESX Multicharacter couldn't connect to the database" id="multicharacter-database">
+    **Symptom:** `esx_multicharacter` (or `oxmysql`) reports that it could not connect to the
+    database on startup.
+
+    **Cause:** a wrong MySQL connection string in your `server.cfg`, or a database server that is
+    not running or not reachable.
+
+    **Fix:**
+
+    - Check that the MySQL connection string in `server.cfg` is correct and well formatted. See the
+      [oxmysql documentation](https://overextended.dev/oxmysql#installation) for the expected format.
+    - Check that MariaDB is installed, running and accepting connections on the configured port. The
+      [installation guide](/docs/tutorial/install#step-4-connect-the-database) walks through setting
+      it up.
+  </Accordion>
+
+  <Accordion title="Error: ESX = nil" id="esx-nil">
+    **Symptom:** a resource throws `attempt to index a nil value (global 'ESX')`.
+
+    **Cause:** the resource started before `es_extended` was loaded, or it uses an outdated way of
+    obtaining the ESX object.
+
+    **Fix:**
+
+    - Update `es_extended` to the latest version.
+    - Add `'@es_extended/imports.lua'` to the resource's `shared_scripts` and declare
+      `dependencies { 'es_extended' }` in its `fxmanifest.lua` so it starts after the core. See
+      [Developing a script](/docs/tutorial/developing#creating-your-first-script).
+  </Accordion>
+</Accordions>

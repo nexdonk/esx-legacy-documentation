@@ -1,0 +1,11 @@
+{
+  "icon": "Monitor",
+  "title": "Client",
+  "pages": [
+    "imports",
+    "modules",
+    "functions",
+    "ui",
+    "..."
+  ]
+}

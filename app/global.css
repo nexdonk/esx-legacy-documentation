@@ -1,0 +1,102 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/lib/default-colors.css';
+@import 'fumadocs-ui/css/preset.css';
+
+/* ------------------------------------------------------------------ */
+/*  ESX brand theme: warm neutrals + signature orange                  */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-fd-background: hsl(30, 25%, 98%);
+  --color-fd-foreground: hsl(24, 12%, 9%);
+  --color-fd-muted: hsl(30, 18%, 94%);
+  --color-fd-muted-foreground: hsl(25, 8%, 42%);
+  --color-fd-popover: hsl(0, 0%, 100%);
+  --color-fd-popover-foreground: hsl(24, 12%, 12%);
+  --color-fd-card: hsl(30, 22%, 97%);
+  --color-fd-card-foreground: hsl(24, 12%, 9%);
+  --color-fd-border: hsl(30, 12%, 86%);
+  --color-fd-primary: hsl(28, 92%, 45%);
+  --color-fd-primary-foreground: hsl(0, 0%, 100%);
+  --color-fd-secondary: hsl(30, 20%, 92%);
+  --color-fd-secondary-foreground: hsl(24, 12%, 12%);
+  --color-fd-accent: hsl(30, 45%, 91%);
+  --color-fd-accent-foreground: hsl(24, 12%, 12%);
+  --color-fd-ring: hsl(28, 92%, 45%);
+  --color-fd-overlay: hsla(24, 20%, 5%, 0.35);
+}
+
+.dark {
+  --color-fd-background: hsl(24, 9%, 6%);
+  --color-fd-foreground: hsl(30, 10%, 92%);
+  --color-fd-muted: hsl(24, 7%, 12%);
+  --color-fd-muted-foreground: hsl(30, 6%, 64%);
+  --color-fd-popover: hsl(24, 8%, 10%);
+  --color-fd-popover-foreground: hsl(30, 10%, 90%);
+  --color-fd-card: hsl(24, 8%, 9%);
+  --color-fd-card-foreground: hsl(30, 10%, 94%);
+  --color-fd-border: hsla(30, 12%, 55%, 0.18);
+  --color-fd-primary: hsl(31, 96%, 58%);
+  --color-fd-primary-foreground: hsl(24, 12%, 6%);
+  --color-fd-secondary: hsl(24, 7%, 14%);
+  --color-fd-secondary-foreground: hsl(30, 10%, 92%);
+  --color-fd-accent: hsla(30, 35%, 45%, 0.22);
+  --color-fd-accent-foreground: hsl(30, 12%, 92%);
+  --color-fd-ring: hsl(31, 96%, 58%);
+  --color-fd-overlay: hsla(24, 20%, 2%, 0.6);
+}
+
+/* Slightly deeper sidebar surfaces in dark mode (mirrors the neutral preset). */
+.dark #nd-sidebar {
+  --color-fd-muted: hsl(24, 7%, 14%);
+  --color-fd-secondary: hsl(24, 7%, 16%);
+  --color-fd-muted-foreground: hsl(30, 6%, 70%);
+}
+
+html {
+  scrollbar-gutter: stable;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--color-fd-background);
+  color: var(--color-fd-foreground);
+}
+
+/* Soft brand glow at the top of the page. */
+.dark body {
+  background-image:
+    radial-gradient(60rem 22rem at 50% -8rem, hsla(31, 96%, 58%, 0.14), transparent 70%);
+  background-repeat: no-repeat;
+}
+
+html:not(.dark) body {
+  background-image:
+    radial-gradient(60rem 22rem at 50% -8rem, hsla(28, 92%, 55%, 0.1), transparent 70%);
+  background-repeat: no-repeat;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}
+
+/* Custom utilities used by the landing page */
+@utility text-gradient-brand {
+  background-image: linear-gradient(120deg, var(--color-fd-foreground) 0%, var(--color-fd-primary) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility grid-fade {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-fd-border) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-fd-border) 70%, transparent) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 100%);
+}
